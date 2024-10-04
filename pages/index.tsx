@@ -26,6 +26,8 @@ export default function Home(props: Props) {
   const [data, setData] = useState<string>("")
   const [error, setError] = useState<string>("")
   const inputRef = useRef<HTMLInputElement>(null)
+const date = new Date().getFullYear()
+
   useEffect(() => {
     props.data.locations.forEach((lcl) => {
       lcl.locations.forEach((lcl) => {
@@ -180,8 +182,12 @@ export default function Home(props: Props) {
             </div>
           </div>
         )}
-        <div className='flex flex-row items-center w-full justify-start gap-4 py-4'>
-          <a href="https://github.com/kittensaredabest/smokey" target={"_blank"} rel="noreferrer" className='inline-flex flex-row items-center gap-2 text-gray-500'>
+        <div className='flex flex-row items-center w-full justify-center gap-4 py-4 mx-auto'>
+        <a href="https://prism-host.com" target={"_blank"} rel="noreferrer" className='inline-flex flex-row items-center gap-2 text-gray-500'>
+            {`Copyright © ${date} Prism Host`}
+          </a>
+          -
+          <a href="https://github.com/prismhost/smokey" target={"_blank"} rel="noreferrer" className='inline-flex flex-row items-center gap-2 text-gray-500'>
             Powered by Smokey
           </a>
         </div>
