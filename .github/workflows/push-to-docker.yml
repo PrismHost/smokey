@@ -17,7 +17,7 @@ jobs:
            uses: docker/login-action@v1
            with:
               registry: ghcr.io
-              username: prismhost
+              username: ${{ github.repository_owner }}
               password: ${{ secrets.REGISTRY_TOKEN }}
          - name: Build and Push Docker Image
            uses: docker/build-push-action@v2
@@ -27,4 +27,4 @@ jobs:
               platforms: linux/amd64
               builder: ${{ steps.buildx.outputs.name }} 
               push: true
-              tags: ghcr.io/kittensaredabest/smokey:latest
+              tags: ghcr.io/prismhost/smokey:latest
